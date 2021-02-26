@@ -1,0 +1,87 @@
+@import 'settings';
+
+.task1_toolbar {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    border-bottom: solid 3px #98989B;
+
+    .number-of-cats-input {
+        margin-left: 5px;
+        padding: 5px;
+        width: 200px;
+        background-color: $main-color;
+        border: solid 1px $main-color;
+        border-radius: 5px;
+        box-shadow: 0 4px $shadow-color;
+    }
+
+    .number-of-cats-input-title {
+        position: absolute;
+        margin: 0;
+        margin-left: 20px;
+        margin-top: -5px;
+        max-width: 100px;
+    }
+
+    .search-btn {
+        width: 100px;
+        padding: 5px;
+        margin-left: 30px;
+        margin-right: 150px;
+        background-color: $btn-color;
+        box-shadow: 0 4px $shadow-color;
+        border: solid 1px $btn-color;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .sort {
+        display: inline-block;
+        position: relative;
+        margin-left: 50px;
+
+        .sort-btns {
+            position: absolute;
+            right: -5px;
+            top: -15px;
+        }
+    
+        .sort-title {
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+
+    .sort-wrap {
+        position: relative;
+        display: inline-block;
+        height: 50px;
+
+        .sort-btn {
+            position: absolute;
+            height: 50%;
+            margin: 0;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+
+            &.up {
+                top: 0;
+            }
+            &.down {
+                bottom: 0;
+            }
+        }
+    }
+
+    .reload-btn {
+        margin-left: 50px;
+        border: none;
+        background-color: #fff;
+        cursor: pointer;
+
+        .reload {
+            font-size: 20px;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kittens</title>
+  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class='header'>
+        <div class='logo'>
+            <img src='/img/pawprint.png' alt='pawprint' />
+        </div>
+        <div class='main-nav'>
+            <a href='#task1'>Task 1</a>
+            <a href='#task2'>Task 2</a>
+        </div>
+    </header>
+
+    <div id='pages'>
+        <section id="task1" class='active'>
+            <div class='container'>
+                <article class='task1_toolbar'>
+                    <h6 class='number-of-cats-input-title'>Ilość kotów</h6>
+                    <input type='text' class='number-of-cats-input' />
+                    <button class='search-btn'>SZUKAJ</button>
+                    <div class='sort'>
+                        <h5 class='sort-title'>Sortuj po datach</h5>
+                        <div class='sort-btns'>
+                            <div class='sort-wrap'>
+                                <button class='sort-btn up sort-date-up'><i class="fas fa-chevron-up"></i></button>
+                                <button class='sort-btn down sort-date-down'><i class="fas fa-chevron-down"></i></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='sort'>
+                        <h5 class='sort-title'>Sortuj po id</h5>
+                        <div class='sort-btns'>
+                            <div class='sort-wrap'>
+                                <button class='sort-btn up sort-id-up'><i class="fas fa-chevron-up"></i></button>
+                                <button class='sort-btn down sort-id-down'><i class="fas fa-chevron-down"></i></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class='reload-btn'><i class='fas fa-sync-alt reload'></i></button>
+                </article>
+            </div>
+        </section>
+        <section id="task2">
+            <div>task2</div>
+        </section>
+    </div>
+</body>
+</html>

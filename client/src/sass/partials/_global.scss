@@ -1,0 +1,20 @@
+#pages {
+    > * {
+      display: none;
+    }
+  
+    > .active {
+      display: block;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: 70vw;
+    border: solid 1px black;
+    margin-left: auto;
+    margin-right: auto;
+}
