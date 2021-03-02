@@ -2,6 +2,7 @@ export const select = {
     containerOf: {
         pages: '#pages',
         catList: '.cat-box-list',
+        popup: '.popup-overlay',
     },
     others: {
         inputCatAmount: '.number-of-cats-input',
@@ -12,6 +13,7 @@ export const select = {
         sortDateDown: '.sort-date-down',
         sortIdUp: '.sort-id-up',
         sortIdDown: '.sort-id-down',
+        closeBtn: '.close-btn',
     },
     nav: {
         links: '.main-nav a',

@@ -5,9 +5,15 @@ class CatBox {
         const thisCatBox = this;
 
         thisCatBox.data = cat;
-        thisCatBox.catList = document.querySelector(select.containerOf.catList);
+        thisCatBox.getSelectors();
         thisCatBox.getCatImage();
         thisCatBox.render();
+    }
+
+    getSelectors() {
+        const thisCatBox = this;
+        thisCatBox.catList = document.querySelector(select.containerOf.catList);
+        thisCatBox.popup = document.querySelector(select.containerOf.popup);
     }
 
     render() {
@@ -28,6 +34,37 @@ class CatBox {
           <h3 class='cat-info'>${shortInfo}</h3>
         </div>
         `;
+
+        box.addEventListener('click', function(event) {
+          event.preventDefault();
+          thisCatBox.popup.classList.add('show');
+          const popupBox = document.createElement('div');
+          popupBox.classList.add('popup');
+          popupBox.innerHTML = `
+          <div class='close-btn'>&times;</div>
+          <div class='cat-image popup-image'>
+            <img src='/img/${thisCatBox.catImage}' alt='cat'>
+          </div>
+          <div class='cat-description popup-description'>
+            <h1 class='cat-id popup-id'>ID: ${thisCatBox.data._id}</h1>
+            <h2 class='cat-date popup-date'>${thisCatBox.date}</h2>
+            <h3 class='cat-info popup-info'>${thisCatBox.data.text}</h3>
+          </div>
+          `;
+
+          thisCatBox.popup.appendChild(popupBox);
+
+          thisCatBox.closeBtn = document.querySelector(select.others.closeBtn);
+          console.log('close btn: ', thisCatBox.closeBtn);
+
+          thisCatBox.closeBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            console.log('btn clicked');
+            thisCatBox.popup.classList.remove('show');
+            thisCatBox.popup.removeChild(thisCatBox.popup.firstChild);
+          });
+        });
+
         thisCatBox.catList.appendChild(box);
     }
 
