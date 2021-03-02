@@ -13,14 +13,46 @@
         border: solid 1px $main-color;
         border-radius: 5px;
         box-shadow: 0 4px $shadow-color;
+        outline: 0;
+
+        &.valid {
+            border: solid 1.5px #40D719;
+        }
+
+        &.error {
+            border: solid 1.5px $error-color;
+        }
+    }
+
+    .error-msg {
+        display: none;
+        color: $error-color;
+        font-size: 12px;
+        position: absolute;
+        margin: 0;
+        padding-left: 20px;
+
+        &.error {
+            display: block;
+        }
+    }
+
+    .number-of-cats-input:focus {
+        border: solid 1.5px #0E0EE3;
     }
 
     .number-of-cats-input-title {
+        background-image: linear-gradient(#fff, $main-color);
         position: absolute;
         margin: 0;
         margin-left: 20px;
         margin-top: -5px;
         max-width: 100px;
+
+        h6 {
+            margin: 0;
+            padding: 0 1px;
+        }
     }
 
     .search-btn {
@@ -64,6 +96,7 @@
             background-color: #fff;
             border: none;
             cursor: pointer;
+            outline: 0;
 
             &.up {
                 top: 0;

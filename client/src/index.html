@@ -20,11 +20,14 @@
     </header>
 
     <div id='pages'>
-        <section id="task1" class='active'>
+        <section id="task1">
             <div class='container'>
                 <article class='task1_toolbar'>
-                    <h6 class='number-of-cats-input-title'>Ilość kotów</h6>
+                    <div class='number-of-cats-input-title'>
+                        <h6>Ilość kotów</h6>
+                    </div>
                     <input type='text' class='number-of-cats-input' />
+                    <h5 class='error-msg'>Wartość ma być większa niż 0</h5>
                     <button class='search-btn'>SZUKAJ</button>
                     <div class='sort'>
                         <h5 class='sort-title'>Sortuj po datach</h5>
@@ -46,11 +49,15 @@
                     </div>
                     <button class='reload-btn'><i class='fas fa-sync-alt reload'></i></button>
                 </article>
+                <article class='task1_main-page'>
+                    <ul class='cat-box-list'></ul>
+                </article>
             </div>
         </section>
         <section id="task2">
             <div>task2</div>
         </section>
     </div>
+    <script src="js/app.js" type="module"></script>
 </body>
 </html>
