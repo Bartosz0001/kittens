@@ -83,6 +83,9 @@ const app = {
         const sortIdUp = document.querySelector(select.others.sortIdUp);
         const sortIdDown = document.querySelector(select.others.sortIdDown);
         const reloadBtn = document.querySelector(select.others.reloadBtn);
+        const employeeBtn = document.querySelector(select.others.employeeBtn);
+        const employeeList = document.querySelector(select.containerOf.employeeList);
+        const employeeSearchInput = document.querySelector(select.others.employeeSearchInput);
 
         inputCatAmount.addEventListener('change', function() {
             if(inputCatAmount.value < 1 || isNaN(inputCatAmount.value)) {
@@ -159,6 +162,17 @@ const app = {
             if(a > b) comparsion = 1;
             else if(a < b) comparsion = -1;
             return comparsion;
+        }
+
+        employeeBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            employeeList.classList.toggle(classNames.list.active);
+        });
+
+        employeeSearchInput.oninput = handleSearch;
+
+        function handleSearch() {
+            console.log('value: ', employeeSearchInput.value);
         }
     },
 

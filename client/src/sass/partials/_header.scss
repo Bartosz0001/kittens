@@ -3,6 +3,7 @@
 .header {
     background-color: $main-color;
     padding: 10px;
+    border-bottom: solid 5px $shadow-color;
 
     .logo {
         width: 50px;

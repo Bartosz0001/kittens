@@ -1,0 +1,115 @@
+@import 'settings';
+
+.task2_panel {
+    background-color: $main-color;
+    width: 300px;
+    height: 500px;
+
+    .employee-btn {
+        background-color: $main-color;
+        box-shadow: 0 2px 0 2px $shadow-color;
+        border-radius: 2px;
+        border: 0;
+        outline: 0;
+        width: 200px;
+        min-height: 25px;
+        margin-top: 100px;
+        margin-left: 30px;
+        padding-left: 10px;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .btn-icon {
+        padding-left: 100px;
+    }
+
+    .employee-list {
+        display: none;
+    }
+
+    .employee-list.show {
+        display: block;
+        position: absolute;
+        z-index: 100;
+        width: 200px;
+        min-height: 50px;
+        padding: 0;
+        margin-left: 28px;
+        margin-top: 5px;
+        border: solid 2px #000;
+        border-radius: 5px;
+        list-style: none;
+        background-color: $main-color;
+
+        li {
+            padding: 5px;
+            font-size: 14px;
+            position: relative;
+        }
+
+        li:hover {
+            background-color: #fff;
+        }
+
+        & > :first-child {
+            border-bottom: solid 2px #000;
+        }
+
+        & > :first-child:hover {
+            background-color: $main-color;
+        }
+
+        .employee-search-input {
+            width: 180px;
+            padding: 5px;
+        }
+    
+        .employee-image {
+            width: 25px;
+            height: 25px;
+    
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+    
+        .employee-name {
+            position: absolute;
+            top: 8px;
+            padding-left: 35px;
+        }
+    }
+    
+    .new-task-input {
+        margin-top: 30px;
+        margin-left: 29px;
+        width: 180px;
+        min-height: 100px;
+        background-color: $main-color;
+        border: 0;
+        outline: 0;
+        box-shadow: 0 2px 0 2px $shadow-color;
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    ::placeholder {
+        font-family: initial;
+      }
+
+    .add-task-btn {
+        margin-top: 20px;
+        margin-left: 30px;
+        border: 0;
+        outline: 0;
+        border-radius: 2px;
+        width: 200px;
+        min-height: 30px;
+        background-color: $btn-color;
+        box-shadow: 0 2px 0 2px $shadow-color;
+        cursor: pointer;
+    }
+}
