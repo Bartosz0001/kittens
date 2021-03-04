@@ -17,6 +17,7 @@ export const select = {
         closeBtn: '.close-btn',
         employeeBtn: '.employee-btn',
         employeeSearchInput: '.employee-search-input',
+        addTaskBtn: '.add-task-btn',
     },
     nav: {
         links: '.main-nav a',
@@ -36,5 +37,9 @@ export const classNames = {
     },
     list: {
         active: 'show',
+    },
+    others: {
+        active: 'active',
+        hide: 'hidden',
     }
 }

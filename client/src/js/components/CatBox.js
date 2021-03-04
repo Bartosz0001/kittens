@@ -55,11 +55,9 @@ class CatBox {
           thisCatBox.popup.appendChild(popupBox);
 
           thisCatBox.closeBtn = document.querySelector(select.others.closeBtn);
-          console.log('close btn: ', thisCatBox.closeBtn);
 
           thisCatBox.closeBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            console.log('btn clicked');
             thisCatBox.popup.classList.remove('show');
             thisCatBox.popup.removeChild(thisCatBox.popup.firstChild);
           });

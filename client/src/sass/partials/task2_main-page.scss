@@ -1,0 +1,93 @@
+@import 'settings';
+
+.task2_main-page {
+    float: left;
+
+    .main-page-header {
+        padding-left: 100px;
+        padding-top: 80px;
+    }
+
+    .task-btn {
+        padding: 10px 30px;
+        margin-left: 25px;
+    }
+
+    .tasks-list {
+        list-style: none;
+        padding-left: 125px;
+        padding-top: 20px;
+    }
+
+    .task {
+        position: relative;
+        background-color: $main-color;
+        box-shadow: 0 2px 0 2px $shadow-color;
+        border-radius: 5px;
+        margin-right: 60px;
+        margin-bottom: 40px;
+        padding: 20px;
+        padding-right: 50px;
+        max-width: 500px;
+    }
+
+    .task-image {
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    .task-description {
+        position: relative;
+    }
+
+    .task-author {
+        position: absolute;
+        top: -30px;
+        padding-left: 40px;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .task-date {
+        margin: 0;
+        font-size: 14px;
+        padding-top: 5px;
+    }
+
+    .task-content {
+        margin: 0;
+        padding-top: 15px;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 0.9;
+    }
+
+    .bin-icon {
+        width: 15px;
+        height: 20px;
+        position: absolute;
+        right: 15px;
+        bottom: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .check-icon {
+        font-size: 30px;
+        position: absolute;
+        right: 10px;
+
+        &.done {
+            color: #51DE38;
+        }
+    }
+}

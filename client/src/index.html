@@ -28,7 +28,7 @@
                     </div>
                     <input type='text' class='number-of-cats-input' />
                     <h5 class='error-msg'>Wartość ma być większa niż 0</h5>
-                    <button class='search-btn'>SZUKAJ</button>
+                    <button class='btn search-btn'>SZUKAJ</button>
                     <div class='sort'>
                         <h5 class='sort-title'>Sortuj po datach</h5>
                         <div class='sort-btns'>
@@ -56,39 +56,38 @@
             </div>
         </section>
         <section id="task2">
+            <div class='panel-background'></div>
             <div class='task2_panel'>
                 <button class='employee-btn'>Pracownik<i class="fas fa-chevron-up btn-icon"></i></button>
                 <ul class='employee-list'>
-                    <li><input type='text' placeholder='Szukaj' class='employee-search-input' /></li>
-                    <li>
-                        <div class='employee-box'>
-                            <div class='employee-image'>
-                                <img src='/img/avatar01.jpeg' alt='man' />
-                            </div>
-                            <div class='employee-name'>Adam Nowak</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class='employee-box'>
-                            <div class='employee-image'>
-                                <img src='/img/avatar02.jpeg' alt='man' />
-                            </div>
-                            <div class='employee-name'>Michał Potoczek</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class='employee-box'>
-                            <div class='employee-image'>
-                                <img src='/img/avatar03.jpeg' alt='man' />
-                            </div>
-                            <div class='employee-name'>Antoni Worek</div>
-                        </div>
-                    </li>
                 </ul>
                 <div class='new-task'>
                     <textarea class='new-task-input' placeholder='Zadanie' rows='5' cols='20'></textarea>
                 </div>
-                <button class='add-task-btn'>DODAJ</button>
+                <button class='btn add-task-btn'>DODAJ</button>
+            </div>
+            <div class='task2_main-page'>
+                <div class='main-page-header'>
+                    <button class='btn task-btn all-tasks'>POKAŻ WSZYSTKIE</button>
+                    <button class='btn task-btn completed-tasks'>POKAŻ UKOŃCZONE</button>
+                    <button class='btn task-btn uncompleted-tasks'>POKAŻ NIEUKOŃCZONE</button>
+                </div>
+                <ul class='tasks-list'>
+                    <li class='task'>
+                        <i class="fas fa-check-circle check-icon"></i>
+                        <div class='bin-icon'>
+                            <img src='https://cdn.pixabay.com/photo/2020/02/24/07/16/dust-bin-4875414_1280.png' alt='bin' />
+                        </div>
+                        <div class='task-image'>
+                            <img src='/img/avatar01.jpeg' alt='man' />
+                        </div>
+                        <div class='task-description'>
+                            <h1 class='task-author'>Adam Nowak</h1>
+                            <h2 class='task-date'>12-12-2012</h2>
+                            <h3 class='task-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc libero leo, auctor in fermentum vel, pharetra sed tellus. Nunc lacinia ligula placerat, blandit turpis in, tincidunt libero. Aliquam suscipit viverra arcu in euismod. Aliquam vitae maximus ante. Aliquam luctus tincidunt odio, nec mollis tortor feugiat vel. Vivamus ut maximus mauris, commodo volutpat erat.</h3>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
     </div>

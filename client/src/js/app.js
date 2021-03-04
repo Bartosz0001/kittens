@@ -1,5 +1,6 @@
 import { select, classNames } from './settings.js';
 import CatBox from './components/CatBox.js';
+import EmployeesList from './components/EmployeesList.js';
 
 const app = {
     initPages: function() {
@@ -72,6 +73,10 @@ const app = {
         }
     },
 
+    initEmployeesList: function() {
+        new EmployeesList();
+    },
+
     initClickableTriggers: function() {
         const thisApp = this;
 
@@ -85,7 +90,7 @@ const app = {
         const reloadBtn = document.querySelector(select.others.reloadBtn);
         const employeeBtn = document.querySelector(select.others.employeeBtn);
         const employeeList = document.querySelector(select.containerOf.employeeList);
-        const employeeSearchInput = document.querySelector(select.others.employeeSearchInput);
+        const addTaskBtn = document.querySelector(select.others.addTaskBtn);
 
         inputCatAmount.addEventListener('change', function() {
             if(inputCatAmount.value < 1 || isNaN(inputCatAmount.value)) {
@@ -169,11 +174,9 @@ const app = {
             employeeList.classList.toggle(classNames.list.active);
         });
 
-        employeeSearchInput.oninput = handleSearch;
-
-        function handleSearch() {
-            console.log('value: ', employeeSearchInput.value);
-        }
+        addTaskBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+        });
     },
 
     init: function() {
@@ -181,6 +184,7 @@ const app = {
 
         thisApp.initPages();
         thisApp.initData(30);
+        thisApp.initEmployeesList();
         thisApp.initClickableTriggers();
     }
 };
