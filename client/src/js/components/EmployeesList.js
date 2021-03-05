@@ -1,5 +1,7 @@
 import { select, classNames } from '../settings.js';
 
+import AddTask from './AddTask.js';
+
 class EmployeesList {
     constructor() {
         const thisList = this;
@@ -8,6 +10,7 @@ class EmployeesList {
         thisList.createList();
         thisList.getSelectors();
         thisList.initSearch();
+        thisList.addTaskListener();
     }
 
     getEmployees() {
@@ -37,6 +40,8 @@ class EmployeesList {
 
         thisList.employeeSearchInput = document.querySelector(select.others.employeeSearchInput);
         thisList.allListItems = document.querySelector(select.containerOf.employeeList).children;
+        thisList.addTaskBtn = document.querySelector(select.others.addTaskBtn);
+        thisList.newTask = document.querySelector(select.others.newTask);
     }
 
     createList() {
@@ -69,11 +74,13 @@ class EmployeesList {
         const thisList = this;
 
         item.addEventListener('click', function() {
-            console.log(thisList.allListItems);
             for(let listItem of thisList.allListItems) {
                 listItem.classList.remove(classNames.others.active);
             }
             item.classList.add(classNames.others.active);
+            for(let employee of thisList.employees) {
+                if(employee.id == item.id.replace('listItem', '')) thisList.chosenEmployee = employee;
+            }
         });
     }
 
@@ -92,6 +99,18 @@ class EmployeesList {
                 }
             }
         }
+    }
+
+    addTaskListener() {
+        const thisList = this;
+
+        thisList.addTaskBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            if(thisList.newTask.value.length > 1 && thisList.chosenEmployee) {
+                new AddTask(thisList.chosenEmployee, thisList.newTask.value);
+            }
+            else alert('Nie wybrano pracownika lub treść zadania ma mniej niż 2 znaki');
+        })
     }
 }
 

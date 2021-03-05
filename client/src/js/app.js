@@ -1,6 +1,7 @@
 import { select, classNames } from './settings.js';
 import CatBox from './components/CatBox.js';
 import EmployeesList from './components/EmployeesList.js';
+import TaskTemplate from './components/TaskTemplate.js';
 
 const app = {
     initPages: function() {
@@ -179,12 +180,23 @@ const app = {
         });
     },
 
+    loadTasksFromLocalStorage() {
+        const thisApp = this;
+
+        if(localStorage.getItem('localTasksList')) thisApp.localTasksList = JSON.parse(localStorage.getItem("localTasksList"));
+
+        for(let task of thisApp.localTasksList) {
+            new TaskTemplate(task);
+        }
+    },
+
     init: function() {
         const thisApp = this;
 
         thisApp.initPages();
         thisApp.initData(30);
         thisApp.initEmployeesList();
+        thisApp.loadTasksFromLocalStorage();
         thisApp.initClickableTriggers();
     }
 };

@@ -4,6 +4,7 @@ export const select = {
         catList: '.cat-box-list',
         popup: '.popup-overlay',
         employeeList: '.employee-list',
+        tasksList: '.tasks-list',
     },
     others: {
         inputCatAmount: '.number-of-cats-input',
@@ -18,6 +19,7 @@ export const select = {
         employeeBtn: '.employee-btn',
         employeeSearchInput: '.employee-search-input',
         addTaskBtn: '.add-task-btn',
+        newTask: '.new-task-input',
     },
     nav: {
         links: '.main-nav a',
