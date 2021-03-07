@@ -1,4 +1,4 @@
-import { select } from '../settings.js';
+import { select, classNames } from '../settings.js';
 
 class CatBox {
     constructor(cat) {
