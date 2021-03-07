@@ -29,6 +29,10 @@
         padding: 20px;
         padding-right: 50px;
         max-width: 500px;
+
+        &.hidden {
+            display: none;
+        }
     }
 
     .task-image {
@@ -74,6 +78,7 @@
         position: absolute;
         right: 15px;
         bottom: 10px;
+        cursor: pointer;
 
         img {
             width: 100%;
@@ -85,9 +90,39 @@
         font-size: 30px;
         position: absolute;
         right: 10px;
+        cursor: pointer;
 
         &.done {
             color: #51DE38;
         }
+    }
+
+    .floating-window {
+        position: fixed;
+        top: 230px;
+        right: 50px;
+        width: 150px;
+        background-color: $main-color;
+        box-shadow: 0 2px 0 2px $shadow-color;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .floating-window-title {
+        font-size: 14px;
+        margin: 0;
+        text-align: center;
+    }
+
+    .floating-window-subtitle {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        padding-top: 10px;
+    }
+
+    .task-data {
+        position: absolute;
+        right: 10px;
     }
 }

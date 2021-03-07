@@ -91,7 +91,6 @@ const app = {
         const reloadBtn = document.querySelector(select.others.reloadBtn);
         const employeeBtn = document.querySelector(select.others.employeeBtn);
         const employeeList = document.querySelector(select.containerOf.employeeList);
-        const addTaskBtn = document.querySelector(select.others.addTaskBtn);
 
         inputCatAmount.addEventListener('change', function() {
             if(inputCatAmount.value < 1 || isNaN(inputCatAmount.value)) {
@@ -174,20 +173,90 @@ const app = {
             event.preventDefault();
             employeeList.classList.toggle(classNames.list.active);
         });
-
-        addTaskBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-        });
     },
 
     loadTasksFromLocalStorage() {
         const thisApp = this;
 
-        if(localStorage.getItem('localTasksList')) thisApp.localTasksList = JSON.parse(localStorage.getItem("localTasksList"));
+        if(localStorage.getItem('localTasksList'))  {
+            thisApp.localTasksList = JSON.parse(localStorage.getItem("localTasksList"));
 
-        for(let task of thisApp.localTasksList) {
-            new TaskTemplate(task);
+            for(let task of thisApp.localTasksList) {
+                new TaskTemplate(task);
+            }
+
+            const checkBtns = document.querySelectorAll(select.others.checkBtns);
+            const deleteBtns = document.querySelectorAll(select.others.deleteBtns);
+
+            for(let checkBtn of checkBtns) {
+                checkBtn.addEventListener('click', function() {
+                    checkBtn.classList.add(classNames.others.done);
+                    const list = JSON.parse(localStorage.getItem("localTasksList"));
+                    list.find(element => element.id === checkBtn.parentElement.id.replace('task', '')).done = true;
+                    localStorage.setItem('localTasksList', JSON.stringify(list));
+                    thisApp.countTasks();
+                });
+            }
+
+            const tasksList = document.querySelector(select.containerOf.tasksList);
+            const allTasks = document.querySelector(select.others.allTasks);
+            const completedTasks = document.querySelector(select.others.completedTasks);
+            const uncompletedTasks = document.querySelector(select.others.uncompletedTasks);
+            const tasks = document.querySelectorAll(select.others.tasks);
+            thisApp.countTasks();
+
+            for(let deleteBtn of deleteBtns) {
+                deleteBtn.addEventListener('click', function() {
+                    const parent = deleteBtn.parentElement;
+                    tasksList.removeChild(parent);
+                    const list = JSON.parse(localStorage.getItem("localTasksList"));
+                    list.splice(list.indexOf(list.find(element => element.id === parent.id.replace('task', ''))), 1);
+                    localStorage.setItem('localTasksList', JSON.stringify(list));
+                    thisApp.countTasks();
+                });
+            }
+
+            allTasks.addEventListener('click', function(event) {
+                event.preventDefault();
+                for(let task of tasks) {
+                    task.classList.remove(classNames.others.hide);
+                }
+            });
+    
+            completedTasks.addEventListener('click', function(event) {
+                event.preventDefault();
+                for(let checkBtn of checkBtns) {
+                    const task = checkBtn.parentElement;
+                    if(checkBtn.classList.contains(classNames.others.done)) task.classList.remove(classNames.others.hide);
+                    else task.classList.add(classNames.others.hide);
+                }
+            });
+    
+            uncompletedTasks.addEventListener('click', function(event) {
+                event.preventDefault();
+                for(let checkBtn of checkBtns) {
+                    const task = checkBtn.parentElement;
+                    if(checkBtn.classList.contains(classNames.others.done)) task.classList.add(classNames.others.hide);
+                    else task.classList.remove(classNames.others.hide);
+                }
+            });
         }
+    },
+
+    countTasks() {
+        const allTasksData = document.querySelector(select.others.allTasksData);
+        const completedTasksData = document.querySelector(select.others.completedTasksData);
+        const uncompletedTasksData = document.querySelector(select.others.uncompletedTasksData);
+        const tasks  = document.querySelectorAll(select.others.tasks);
+        const checkBtns = document.querySelectorAll(select.others.checkBtns);
+
+        allTasksData.innerHTML = tasks.length;
+        let checkedBtnsLength = 0;
+        for(let checkBtn of checkBtns) {
+            if(checkBtn.classList.contains(classNames.others.done)) checkedBtnsLength++;
+        }
+        completedTasksData.innerHTML = checkedBtnsLength;
+        uncompletedTasksData.innerHTML = tasks.length - checkedBtnsLength;
     },
 
     init: function() {
@@ -196,8 +265,8 @@ const app = {
         thisApp.initPages();
         thisApp.initData(30);
         thisApp.initEmployeesList();
-        thisApp.loadTasksFromLocalStorage();
         thisApp.initClickableTriggers();
+        thisApp.loadTasksFromLocalStorage();
     }
 };
 

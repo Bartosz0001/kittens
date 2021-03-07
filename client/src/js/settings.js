@@ -20,6 +20,15 @@ export const select = {
         employeeSearchInput: '.employee-search-input',
         addTaskBtn: '.add-task-btn',
         newTask: '.new-task-input',
+        checkBtns: '.check-icon',
+        deleteBtns: '.bin-icon',
+        allTasks: '.all-tasks',
+        completedTasks: '.completed-tasks',
+        uncompletedTasks: '.uncompleted-tasks',
+        tasks: '.task',
+        allTasksData: '.all-tasks-data',
+        completedTasksData: '.completed-tasks-data',
+        uncompletedTasksData: '.uncompleted-tasks-data',
     },
     nav: {
         links: '.main-nav a',
@@ -43,5 +52,6 @@ export const classNames = {
     others: {
         active: 'active',
         hide: 'hidden',
+        done: 'done',
     }
 }
